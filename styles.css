@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #181818;
+    font-family: Arial;
+}
+
+
+/* THREE.JS (model) VIEWER */
+
+#viewer {
+    margin: 50px auto 0;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+
+/* CONTROL PANEL 4 model */
+
+.panel {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    background: #ffffffdd;
+    padding: 15px;
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+
+
+/* CLASSES FOR TEXT N ALLAT  */
+
+.coatgrid,
+.markinggrid {
+    padding: 20px;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    width: 325px;
+    text-align: center;
+}
+
+
+.stylesel,
+.coatsel {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    font-family: georgia;
+    font-weight: bolder;
+    color: rgb(104, 66, 255);
+}
+
+h1 {
+    font-family: courier;
+    font-style: italic;
+    font-size: 25px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+
+/* MOBILE  */
+
+
+@media (max-width: 600px) {
+
+    #viewer {
+        margin: 20px auto 0;
+        height: 65vh;
+        border-radius: 12px;
+    }
+
+
+    .panel {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 12px;
+    }
+
+
+    .coatgrid,
+    .markinggrid {
+        padding: 5px;
+        font-size: 16px;
+    }
+
+
+    .stylesel,
+    .coatsel {
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+
+}
