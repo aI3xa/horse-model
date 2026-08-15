@@ -79,28 +79,26 @@ let model;
 const loader = new GLTFLoader();
 
 loader.load(
-
     "minecraft_horse__bare_bones.glb",
 
     (gltf) => {
 
         model = gltf.scene;
 
+        // PUT MODEL INTO SCENE FIRST
         scene.add(model);
 
-        // Default coat
-        changeTexture("tackless_horses/horse_creamy.png");
+        console.log("MODEL PRESENT");
 
+        // Texture failure cannot prevent model from existing
+        changeTexture("tackless_horses/horse_creamy.png");
     },
 
     undefined,
 
-    (err) => {
-
-        console.log(err);
-
+    (error) => {
+        console.error("GLB FAILED:", error);
     }
-
 );
 
 
@@ -174,25 +172,25 @@ function changeTexture(file) {
             texture.minFilter = THREE.NearestFilter;
             texture.generateMipmaps = false;
 
-            // Remember currently selected coat
             currentCoat = texture;
 
-            // If there is a marking selected,
-            // rebuild the combined texture.
             if (currentMarking) {
-
                 createCombinedTexture();
-
             } else {
-
                 applyTexture(texture);
-
             }
+
+        },
+
+        undefined,
+
+        (error) => {
+
+            console.error("COAT FAILED:", file, error);
 
         }
 
     );
-
 }
 
 
