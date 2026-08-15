@@ -39,7 +39,7 @@ renderer.setSize(
     window.innerHeight
 );
 
-renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setPixelRatio(1);
 
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
