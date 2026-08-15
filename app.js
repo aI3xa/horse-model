@@ -780,22 +780,20 @@ function checkCombination() {
         document.getElementById("combinationMessage");
 
 
-    // BROWN + BLACKDOTS EXCEPTION
-    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_blackdots.png") {
+// BROWN + BLACKDOTS ORRR WHITEFIELD EXCEPTION
+    if (
+        coat === "tackless_horses/horse_brown.png" &&
+        (
+        marking === "markings/horse_markings_blackdots.png" ||
+        marking === "markings/horse_markings_whitefield.png"
+        )
+    ) {
 
-        message.textContent =
-            "Valid for Vanilla, invalid for Optifine.";
+    message.textContent =
+        "Valid for Vanilla, invalid for Optifine.";
 
-        return;
-    }
-    // BROWN + WHITEFIELD EXCEPTION
-    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_whitefield.png") {
-
-        message.textContent =
-            "Valid for Vanilla, invalid for Optifine.";
-
-        return;
-    }
+    return;
+  }
 
 
     // is combo for optifine working right
