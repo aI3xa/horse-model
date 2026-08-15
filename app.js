@@ -9,6 +9,8 @@ import { GLTFLoader }
     from
     "https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
+alert("SCRIPT.JS IS RUNNING");
+
 
 const scene = new THREE.Scene();
 
