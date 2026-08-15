@@ -89,7 +89,7 @@ loader.load(
         scene.add(model);
 
         // Default coat
-        changeTexture("tackless_horses/horse_creamy3.png");
+        changeTexture("tackless_horses/horse_creamy.png");
 
     },
 
@@ -403,9 +403,372 @@ animate();
 // CHECKING IF COMBO IS POSSIBLE
 // --------------------------------------------
 
+const invalidCombinations = [
+
+    // BLACK 1 COMBOS
+    {
+        coat: "tackless_horses/horse_black.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // BLACK 2 COMBOS
+    {
+        coat: "tackless_horses/horse_black2.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black2.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black2.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black2.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // BLACK 3 COMBOS
+    {
+        coat: "tackless_horses/horse_black3.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black3.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black3.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_black3.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    // BROWN COMBOS -- TWO ARE EXCEPTIONS; MENTIONED L8R
+    {
+        coat: "tackless_horses/horse_brown.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+
+    // BROWN 2 COMBOS
+    {
+        coat: "tackless_horses/horse_brown2.png",
+        marking: "markings/horse_markings_blackdots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_brown2.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_brown2.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // CHESTNUT COMBOS
+    {
+        coat: "tackless_horses/horse_chestnut.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // CHESTNUT 2 COMBOS
+    {
+        coat: "tackless_horses/horse_chestnut2.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut2.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut2.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut2.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // CHESTNUT 3 COMBOS
+    {
+        coat: "tackless_horses/horse_chestnut3.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut3.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut3.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_chestnut3.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    // CREAMY COMBOS
+    {
+        coat: "tackless_horses/horse_creamy.png",
+        marking: "markings/horse_markings_blackdots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // CREAMY 2 COMBOS
+    {
+        coat: "tackless_horses/horse_creamy2.png",
+        marking: "markings/horse_markings_blackdots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy2.png",
+        marking: "markings/horse_markings_whitefield.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy2.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy2.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // CREAMY 3 COMBOS
+    {
+        coat: "tackless_horses/horse_creamy3.png",
+        marking: "markings/horse_markings_blackdots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy3.png",
+        marking: "markings/horse_markings_whitefield.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy3.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy3.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // CREAMY 4 COMBOS
+    {
+        coat: "tackless_horses/horse_creamy4.png",
+        marking: "markings/horse_markings_blackdots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy4.png",
+        marking: "markings/horse_markings_whitefield.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy4.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_creamy4.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+
+    // DARK BROWN COMBOS
+    {
+        coat: "tackless_horses/horse_darkbrown.png",
+        marking: "markings/horse_markings_blackdots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_darkbrown.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_darkbrown.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // DARK BROWN 2 COMBOS
+    {
+        coat: "tackless_horses/horse_darkbrown2.png",
+        marking: "markings/horse_markings_blackdots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_darkbrown2.png",
+        marking: "markings/horse_markings_whitefield1.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_darkbrown2.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+
+    // GRAY COMBOS
+    {
+        coat: "tackless_horses/horse_gray.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // GRAY 2 COMBOS
+    {
+        coat: "tackless_horses/horse_gray2.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray2.png",
+        marking: "markings/horse_markings_white3.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray2.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray2.png",
+        marking: "markings/horse_markings_whitedots3.png"
+    },
+
+    // GRAY 3 COMBOS
+    {
+        coat: "tackless_horses/horse_gray3.png",
+        marking: "markings/horse_markings_white.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray3.png",
+        marking: "markings/horse_markings_white2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray3.png",
+        marking: "markings/horse_markings_whitedots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_gray3.png",
+        marking: "markings/horse_markings_whitedots2.png"
+    },
+
+    // WHITE COMBOS
+    {
+        coat: "tackless_horses/horse_white.png",
+        marking: "markings/horse_markings_blackdots2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_white.png",
+        marking: "markings/horse_markings_whitefield2.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_white.png",
+        marking: "markings/horse_markings_whitefield4.png"
+    },
+
+    // WHITE 2 COMBOS
+    {
+        coat: "tackless_horses/horse_white2.png",
+        marking: "markings/horse_markings_blackdots.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_white2.png",
+        marking: "markings/horse_markings_whitefield.png"
+    },
+
+    {
+        coat: "tackless_horses/horse_white2.png",
+        marking: "markings/horse_markings_whitefield3.png"
+    },
+    
+
+];
+
+
 function checkCombination() {
-
-
 
     const coat =
         document.getElementById("coatSelect").value;
@@ -413,26 +776,57 @@ function checkCombination() {
     const marking =
         document.getElementById("markingSelect").value;
 
+    const message =
+        document.getElementById("combinationMessage");
 
-    if (
-        coat === "https://www.dropbox.com/scl/fi/ranplvessrwi0cwqnxyim/horse_black.png?rlkey=5cslor8z7lqx4rqvwbuwus2pe&st=0kdncz69&e=1&dl=0" &&
-        marking === "https://www.dropbox.com/scl/fi/vfnpnq5ei1k9rtaosnacm/horse_markings_blackdots.png?rlkey=4dzy00y2pqjn8nxlt9kqv3kb1&st=8wc42tml&dl=0"
-    ) {
 
-        document.getElementById("combinationMessage").textContent =
-            "This combination is possible!";
+    // BROWN + BLACKDOTS EXCEPTION
+    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_blackdots") {
+
+        message.textContent =
+            "Valid for Vanilla, invalid for Optifine.";
+
+        return;
+    }
+    // BROWN + WHITEFIELD EXCEPTION
+    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_whitefield") {
+
+        message.textContent =
+            "Valid for Vanilla, invalid for Optifine.";
+
+        return;
+    }
+
+
+    // is combo for optifine working right
+    const isInvalid = invalidCombinations.some(combination =>
+        combination.coat === coat &&
+        combination.marking === marking
+    );
+
+
+    if (isInvalid) {
+
+        message.textContent =
+            "This combination is not possible at the moment :( Sorry!";
 
     } else {
 
-        document.getElementById("combinationMessage").textContent =
-            "This combination is not possible.";
+        message.textContent =
+            "This combination is possible!";
 
     }
 
 }
-// for changing coat
-document.getElementById("coatSelect").addEventListener("change", checkCombination);
-// for changing marking
-document.getElementById("markingSelect").addEventListener("change", checkCombination);
+
+
+// Coat
+document.getElementById("coatSelect")
+    .addEventListener("change", checkCombination);
+
+
+// Marking
+document.getElementById("markingSelect")
+    .addEventListener("change", checkCombination);
 
 
