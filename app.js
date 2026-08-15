@@ -781,7 +781,7 @@ function checkCombination() {
 
 
     // BROWN + BLACKDOTS EXCEPTION
-    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_blackdots") {
+    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_blackdots.png") {
 
         message.textContent =
             "Valid for Vanilla, invalid for Optifine.";
@@ -789,7 +789,7 @@ function checkCombination() {
         return;
     }
     // BROWN + WHITEFIELD EXCEPTION
-    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_whitefield") {
+    if (coat === "tackless_horses/horse_brown.png" && marking ==="markings/horse_markings_whitefield.png") {
 
         message.textContent =
             "Valid for Vanilla, invalid for Optifine.";
