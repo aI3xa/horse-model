@@ -1,15 +1,21 @@
+alert("JS START");
+
 import * as THREE from
     "https://unpkg.com/three@0.160.0/build/three.module.js";
+
+alert("THREE IMPORT WORKED");
 
 import { OrbitControls }
     from
     "https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 
+alert("ORBIT CONTROLS WORKED");
+
 import { GLTFLoader }
     from
     "https://unpkg.com/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
-alert("SCRIPT.JS IS RUNNING");
+alert("GLTF LOADER IS RUNNING");
 
 
 const scene = new THREE.Scene();
