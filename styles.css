@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow: hidden;
-    background: #eaeaea;
+    background: rgb(234, 234, 234);
     font-family: Arial;
 }
 
@@ -13,7 +13,7 @@ body {
     height: 600px;
     border-radius: 15px;
     overflow: hidden;
-    background:#ffc0cb;
+    background:rgb(255, 192, 203;
 }
 
 
@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    background: #ffffffdd;
+    background: rgba(255, 255, 255, 0.867);
     padding: 15px;
     border-radius: 12px;
     box-sizing: border-box;
@@ -45,7 +45,7 @@ body {
     text-align: center;
     border-radius:8px;
     border:3px;
-    border-color: #d081f8;
+    border-color: rgb(208, 129, 248);
     border-style:solid;
 }
 
