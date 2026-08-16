@@ -56,17 +56,6 @@ body {
     color: rgb(104, 66, 255);
 }
 
-/* h1 class */
-
-.headModel {
-    font-family: courier;
-    font-style: italic;
-    font-size: 25px;
-    display: flex;
-    text-align: center;
-    align-items: center;
-}
-
 
 /* is combo valid msg */
 #combinationMessage {
