@@ -85,19 +85,16 @@ loader.load(
 
         model = gltf.scene;
 
-        // PUT MODEL INTO SCENE FIRST
         scene.add(model);
 
-        console.log("MODEL PRESENT");
-
-        // Texture failure cannot prevent model from existing
+        // Default Coat
         changeTexture("tackless_horses/horse_creamy.png");
     },
 
     undefined,
 
-    (error) => {
-        console.error("GLB FAILED:", error);
+    (err) => {
+        console.log(err);
     }
 );
 
