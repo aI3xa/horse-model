@@ -12,7 +12,7 @@ import { GLTFLoader }
 
 const scene = new THREE.Scene();
 
-scene.background = new THREE.Color(0x222222);
+scene.background = new THREE.Color(0xF3F3F3);
 
 
 const camera = new THREE.PerspectiveCamera(
