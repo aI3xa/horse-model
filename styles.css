@@ -57,7 +57,6 @@ body {
 
 .stylesel,
 .coatsel {
-    display: flex;
     align-items: center;
     text-align: center;
     font-size: 30px;
@@ -123,6 +122,23 @@ body {
         text-align: center;
         font-size: 18px;
         padding: 8px;
+        box-sizing: border-box;
+    }
+
+    .mobile-layout {
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    select.mobile-layout {
+        width: 100%;
+    }
+
+    #combinationMessage {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
         box-sizing: border-box;
     }
 
